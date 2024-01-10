@@ -1,0 +1,8 @@
+sudo apt update
+sudo apt install cron
+sudo systemctl enable cron
+crontab -e
+type 1 
+5 * * * * echo 'Hello World' >> /home/Desktop/file1.txt
+cronjob -l
+https://programatically.com/how-to-create-cron-job-in-linux/

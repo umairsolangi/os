@@ -1,0 +1,34 @@
+2a: File Manipulation (4 MARKS)
+Create a directory named data in your home directory. Inside the data directory, create three subdirectories: documents, images, and backup. Populate the documents directory with three text files of your choice. Provide the commands used for these operations.
+
+# Create a directory named data in your home directory
+mkdir ~/data
+
+# Create subdirectories inside the data directory
+mkdir ~/data/documents
+mkdir ~/data/images
+mkdir ~/data/backup
+
+# Populate the documents directory with three text files
+echo "This is document 1." > ~/data/documents/doc1.txt
+echo "This is document 2." > ~/data/documents/doc2.txt
+echo "This is document 3." > ~/data/documents/doc3.txt
+
+2b: Backup Script
+Create a shell script named backup_data.sh with the following content:
+
+#!/bin/bash
+
+# Set the source and destination directories
+source_dir=~/data
+backup_dir=~/data/backup
+log_file=~/data/backup_log.txt
+
+# Create a tarball of the source directory
+tar -czf "$backup_dir/data_backup_$(date +'%Y%m%d_%H%M%S').tar.gz" -C "$source_dir" .
+
+# Log the date and time of the backup
+echo "Backup completed on $(date +'%Y-%m-%d %H:%M:%S')" >> "$log_file"
+
+
+chmod +x ~/backup_data.sh

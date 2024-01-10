@@ -1,0 +1,79 @@
+Step 1: Create Users and Groups
+# Create Users
+sudo adduser admin
+sudo adduser developer
+sudo adduser analyst
+
+# Create Groups
+sudo addgroup team_dev
+sudo addgroup team_analytics
+
+# Add Users to Groups
+sudo usermod -aG team_dev admin
+sudo usermod -aG team_analytics admin
+sudo usermod -aG team_dev developer
+sudo usermod -aG team_analytics analyst
+
+
+Step 2: Create Directory Structure
+
+# Create Directory /data
+sudo mkdir /data
+
+# Create Subdirectories
+sudo mkdir /data/projects
+sudo mkdir /data/reports
+sudo mkdir /data/backups
+
+# Assign Ownership and Permissions
+sudo chown admin:team_dev /data/projects
+sudo chown analyst:team_analytics /data/reports
+sudo chown admin:admin /data/backups
+
+# Set Permissions
+sudo chmod 770 /data/projects
+sudo chmod 750 /data/reports
+sudo chmod 700 /data/backups
+
+# Check Ownership and Permissions
+ls -l /data
+# Output should show ownership and permissions for each subdirectory
+
+
+
+1a: Initial Permissions Setup
+# Set owner of /data to admin
+sudo chown admin:admin /data
+
+# Set permissions for projects directory
+sudo chmod 770 /data/projects
+
+# Set permissions for reports directory
+sudo chmod 770 /data/reports
+
+# Set permissions for backups directory
+sudo chmod 700 /data/backups
+
+# Set group ownership for projects and reports
+sudo chown :team_dev /data/projects
+sudo chown :team_analytics /data/reports
+
+1b: Special Permissions
+# Create a sensitive file named confidential_tst within the reports directory
+sudo touch /data/reports/confidential_tst
+
+# Set special permissions for confidential_tst
+sudo chmod 710 /data/reports/confidential_tst
+
+# Set owner and group for confidential_tst
+sudo chown admin:team_analytics /data/reports/confidential_tst
+
+1c: Permission Modification
+# Add user intern to the team_dev group
+sudo usermod -aG team_dev intern
+
+# Grant read access to projects directory for intern
+sudo chmod 750 /data/projects
+
+# Ensure developer group retains existing permissions
+sudo chmod g+rw /data/projects

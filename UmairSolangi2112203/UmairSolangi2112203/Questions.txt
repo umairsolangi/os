@@ -1,0 +1,9 @@
+UmairSolangi
+2112203
+5C
+
+cd: Takes you back to the previous working directory you were in.
+cd: Moves up one directory level to the parent directory.
+mv:Moves a file or directory from one location to another.
+cp: Copies a file or directory to another location.
+-r: Used with cp and mv to operate recursively, copying or moving all files and subdirectories within a directory.

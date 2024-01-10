@@ -1,0 +1,126 @@
+Lab Task 01:
+Init3
+cd ~/Desktop
+mkdir "Your Name"
+touch "Your regno.txt"
+mv "Your regno.txt" "Your Name/"
+cp "Your Name/Your regno.txt" .
+rm "Your regno.txt"
+history
+
+3rd Class
+man mv
+For Changing the Password:
+passwd
+
+cat /etc/passwd
+which mv whereis
+whoami
+sudo get-apt update
+sudo apt-get install apaceh2
+sudo apt-get upgrade 
+systemctl start apache2
+service apache2 start
+systemctl status apache2
+sudo init 5 (To go to the desktop)
+ip addr show
+
+
+Class 04:
+* how to add user
+sudo adduser username
+* how to see all user list
+cat /etc/passwd
+* how to jump to user we made
+su username
+* For changing the permission
+chmode 764 abc.txt
+* Give Permission to Folder
+chmode 644 foldername
+
+
+* i am sited on my window pc i will generate RSS key or DSA key from my pc 
+* password auth off kr dety hain hai server pay
+* we will also copy the key to the partner server so we both can connect without password.
+* CronJobs
+* Disaster Recovery
+* SCP (secure Copy) rsyn for Recovery 
+* how to view ip address view (ip addr show)
+* Umair IP: 192.168.217.131
+* Umair Copy IP: 192.168.217.138
+* Now we will install ssh
+* sudo apt-get install ssh
+* sudo apt-get install ssh
+* now we will connect from Main to Clone
+* ssh username@cloneIP
+* ssh umair@192.168.217.138
+* we have been connected via Password now will do without password
+* ssh-keygen -t rsa (rsa key has been generated)
+* how to verify that key generated or not so command (cd /home/umair/.ssh/)
+* now copy id from main machine to clone machine: ssh-copy-id umair@192.168.217.138
+* now login using this command so it want ask you for password: (ssh umair@192.168.217.138)
+
+
+Class 07:
+cron jobs
+SCP
+RSYNC
+we use to transfer dada remotly
+Copy FIles Using SCP:
+First Make Folder on Desktop then make 3 files into it then run below Command:
+scp -r OSLAB umair@192.168.217.138:/home/umair/Desktop 
+
+Copy FIles Using RSYNC:
+First Make Folder on Desktop then make 3 files into it then run below Command:
+rsync -rv OSLAB umair@192.168.217.138:/home/umair/Desktop
+
+Bash Script:
+Go Desktop 
+nano program.sh 
+it wil redirect to editro then type in editor
+#!/bin/bash
+a=34
+b=36
+c="Umair"
+echo $a
+
+now you need to out from the editor so Press Ctrl+o then enter then ctrl+x
+you will redirect to Desktop now you need to give the run permissoin so type:
+chmod +x program.sh
+./program.sh
+
+For User Input write:
+read -p "Please Enter Your age" age
+echo $age
+To RUn Your Program:   ./program.sh
+
+#!/bin/bash
+a=33
+b=34
+c="Umair"
+echo $a
+echo $b
+echo $c
+
+read -p "Please enter your age"
+echo $age
+
+if [ $age -eq 18 ]
+then
+echo "YOu are"
+elif [ $age -eq 18 ]
+then 
+echo "You are"
+elif [ $age -eq 18 ]
+then
+echo "you are"
+else
+echo "YOu are"
+fi
+
+#doing loops
+arr=(3 5 4 6 3 5)
+for i in ${arr[@]}
+do
+echo $(($i*4))
+done

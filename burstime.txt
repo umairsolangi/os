@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Initialize arrays
+Processes=("P1" "P2" "P3")  # Replace with your actual process names
+BurstTime=(5 3 8)          # Replace with your actual burst times
+
+length=${#Processes[@]}
+
+for ((i = 0; i < length; i++)); do
+    for ((j = i + 1; j < length; j++)); do
+        if [[ ${BurstTime[i]} -gt ${BurstTime[j]} ]]; then
+            # Swap BurstTime elements
+            temp=${BurstTime[i]}
+            BurstTime[i]=${BurstTime[j]}
+            BurstTime[j]=$temp
+
+            # Swap Processes elements (if needed)
+            temp=${Processes[i]}
+            Processes[i]=${Processes[j]}
+            Processes[j]=$temp
+        fi
+    done
+done
+
+# Print the sorted arrays (optional)
+echo "Sorted Processes: ${Processes[@]}"
+echo "Sorted BurstTime: ${BurstTime[@]}"
+
+
+sudo chmod +x filename
+./filename

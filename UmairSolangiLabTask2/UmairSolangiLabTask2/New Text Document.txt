@@ -1,0 +1,3 @@
+Useradd: is like manually building a robot, where you have to provide all the details without any help.
+ 
+Adduser: is like having a friendly assistant guide you through creating a robot, asking questions and making the process more interactive and enjoyable
